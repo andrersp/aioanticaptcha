@@ -184,7 +184,6 @@ if __name__ == "__main__":
 ___
 
 Check out [examples](https://github.com/andrersp/aioanticaptcha) for other captcha types
-License
--------
 
+License
 [MIT](https://choosealicense.com/licenses/mit/)

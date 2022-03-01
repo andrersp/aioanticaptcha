@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1'
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+VERSION = '1.0'
 DESCRIPTION = 'Async lib for  Anti-Captcha service.'
-LONG_DESCRIPTION = 'Async lib for bypass captcha using Anti-Captcha.'
+
 
 # Setting up
 setup(
@@ -11,10 +14,11 @@ setup(
     author="André França",
     author_email="rsp.assistencia@gmail.com",
     description=DESCRIPTION,
-    long_description=LONG_DESCRIPTION,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=['aiohttp', 'aiofiles'],
-
+    url="https://github.com/andrersp/aioanticaptcha",
 
     keywords=['python', 'anti-captcha', 'async'],
     classifiers=[
