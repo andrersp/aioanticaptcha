@@ -20,7 +20,7 @@ class recaptchaV2Proxyless(antiNetworking):
             self.log(self.err_string)
             return 0
         # checking result
-        asyncio.sleep(3)
+        await asyncio.sleep(3)
         task_result = await self.wait_for_result(300)
         if task_result == 0:
             return 0
