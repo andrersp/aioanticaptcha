@@ -1,5 +1,6 @@
-from aioanticaptcha.antinetworking import *
 import asyncio
+
+from aioanticaptcha.antinetworking import *
 
 
 class hCaptchaProxyless(antiNetworking):
@@ -24,7 +25,7 @@ class hCaptchaProxyless(antiNetworking):
             return 0
         # checking result
         await asyncio.sleep(3)
-        task_result = self.wait_for_result(300)
+        task_result = await self.wait_for_result(300)
         if task_result == 0:
             return 0
         else:
