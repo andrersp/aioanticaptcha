@@ -1,5 +1,6 @@
-from aioanticaptcha.hcaptchaproxyless import *
 import asyncio
+
+from aioanticaptcha.hcaptchaproxyless import *
 
 
 async def main():
@@ -9,7 +10,7 @@ async def main():
         solver.set_website_url("https://website.com")
         solver.set_website_key("SITE_KEY")
 
-        g_response = solver.solve_and_return_solution()
+        g_response = await solver.solve_and_return_solution()
         if g_response != 0:
             print("g-response: " + g_response)
         else:
