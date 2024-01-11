@@ -5,13 +5,25 @@ from base64 import b64encode
 
 class imagecaptcha(antiNetworking):
     async def solve_and_return_solution(self, file_path, **kwargs):
-
-        try:
-            async with aiofiles.open(file_path, "rb") as img:
-                img_str = b64encode(await img.read()).decode("ascii")
-                await img.close()
-        except FileNotFoundError as exc:
-            self.log("image not found")
+        if file_path:
+            try:
+                async with aiofiles.open(file_path, "rb") as img:
+                    img_str = b64encode(await img.read()).decode("ascii")
+                    await img.close()
+            except FileNotFoundError as exc:
+                self.log("image not found")
+                return 0
+        elif kwargs.get("body"):
+            body = kwargs.get("body")
+            if isinstance(body, bytes):
+                img_str = b64encode(body).decode("ascii")
+            elif isinstance(body, str):
+                img_str = body
+            else:
+                self.log("invalid body type")
+                return 0
+        else:
+            self.log("no image provided")
             return 0
 
         task_data = {
