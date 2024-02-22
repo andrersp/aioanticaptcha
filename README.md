@@ -42,7 +42,7 @@ async def main():
         # only for V2-invisible Recaptcha! :
         # solver.set_is_invisible(1)
 
-        g_response = solver.solve_and_return_solution()
+        g_response = await solver.solve_and_return_solution()
         if g_response != 0:
             print("g-response: " + g_response)
         else:
